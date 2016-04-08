@@ -1,5 +1,5 @@
 #A Naming Convention Formatter for Java
-##Run Demo([mainClass](src/main/java/info/liudian/common/naming/demo/Demo.java "Demo.java").)
+##Run Demo([mainClass](src/main/java/info/liudian/common/naming/demo/Demo.java "Demo.java"))
     >mvn package
     >java -jar target/naming-convention-1.1.jar
     CAMEL_CASE:
