@@ -1,7 +1,9 @@
 #A Naming Convention Formatter for Java
 ##Run Demo ([mainClass](src/main/java/info/liudian/common/naming/demo/Demo.java "Demo.java"))
-    >mvn package
-    >java -jar target/naming-convention-1.1.jar
+    > git clone https://github.com/liudian/naming-convention.git
+    > cd naming-convention.
+    > mvn package
+    > java -jar target/naming-convention-1.1.jar
 
     CAMEL_CASE:           demoName  -> demoName
     PASCAL_CASE:          demoName  -> DemoName
