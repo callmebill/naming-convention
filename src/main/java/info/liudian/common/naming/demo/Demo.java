@@ -7,33 +7,23 @@ public class Demo {
     public static void main(String[] args) {
         String[] demos = {
                 "demoName",
-                "DemoName",
                 "demo-name",
+                "DemoName",
                 "demo_name",
                 "DEMO_NAME"
         };
 
         for (String demo : demos) {
 
-            out.print(Convention.CAMEL_CASE + ":\t\t");
-            out.println(demo + " -> " + Convention.CAMEL_CASE.format(demo));
-            out.println();
-            out.print(Convention.PASCAL_CASE + ":\t\t");
-            out.println(demo + " -> " + Convention.PASCAL_CASE.format(demo));
-            out.println();
-            out.print(Convention.LOWERCASE_HYPHEN + ":\t\t");
-            out.println(demo + " -> " + Convention.LOWERCASE_HYPHEN.format(demo));
-            out.println();
-            out.print(Convention.LOWERCASE_UNDERSCORE + ":\t\t");
-            out.println(demo + " -> " + Convention.LOWERCASE_UNDERSCORE.format(demo));
-            out.println();
-            out.print(Convention.UPPERCASE_UNDERSCORE + ":\t\t");
-            out.println(demo + " -> " + Convention.UPPERCASE_UNDERSCORE.format(demo));
-            out.println();
+            out.printf("%-21s %-9s -> %-9s\n", Convention.CAMEL_CASE + ":", demo, Convention.CAMEL_CASE.format(demo));
+            out.printf("%-21s %-9s -> %-9s\n", Convention.PASCAL_CASE + ":", demo, Convention.PASCAL_CASE.format(demo));
+            out.printf("%-21s %-9s -> %-9s\n", Convention.LOWERCASE_HYPHEN + ":", demo, Convention.LOWERCASE_HYPHEN.format(demo));
+            out.printf("%-21s %-9s -> %-9s\n", Convention.LOWERCASE_UNDERSCORE + ":", demo, Convention.LOWERCASE_UNDERSCORE.format(demo));
+            out.printf("%-21s %-9s -> %-9s\n", Convention.UPPERCASE_UNDERSCORE + ":", demo, Convention.UPPERCASE_UNDERSCORE.format(demo));
+            out.printf("\n");
         }
         String property = "propertyName";
-        out.print("Prefix" + ":\t\t");
-        out.println(property + " -> " + Convention.CAMEL_CASE.format(property, "set"));
+        out.printf("%-21s %-9s -> %-9s\n", "prefix:", property, Convention.CAMEL_CASE.format(property, "set"));
 
     }
 }
