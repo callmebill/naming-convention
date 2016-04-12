@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="NamingConvention:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/NamingConvention_jar</output-path>
+    <root id="archive" name="NamingConvention.jar">
+      <element id="module-output" name="NamingConvention" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>
