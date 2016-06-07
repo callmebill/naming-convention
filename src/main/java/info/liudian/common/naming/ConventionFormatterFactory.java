@@ -1,6 +1,10 @@
 package info.liudian.common.naming;
 
 public class ConventionFormatterFactory {
+    ConventionFormatter create(Convention dest) {
+        return new Converter(dest);
+    }
+
     class Converter implements ConventionFormatter {
         private Convention dest;
 
@@ -17,9 +21,5 @@ public class ConventionFormatterFactory {
         public String format(String name, String prefix) {
             return dest.format(name, prefix);
         }
-    }
-
-    ConventionFormatter create(Convention dest) {
-        return new Converter(dest);
     }
 }

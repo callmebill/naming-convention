@@ -1,6 +1,7 @@
 package info.liudian.common.naming.demo;
 
 import info.liudian.common.naming.Convention;
+
 import static java.lang.System.out;
 
 public class Demo {

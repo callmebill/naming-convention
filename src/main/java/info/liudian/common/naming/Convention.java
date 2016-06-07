@@ -5,8 +5,7 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
-
-import static java.lang.String.format;
+import java.util.stream.Collectors;
 
 public enum Convention {
     CAMEL_CASE,
@@ -16,6 +15,8 @@ public enum Convention {
     UPPERCASE_UNDERSCORE;
 
     static Map<Convention, Pattern> conventionPatternMap = new EnumMap<>(Convention.class);
+    static Map<Convention, NameParser> conventionNameParserMap = new EnumMap<>(Convention.class);
+    static Map<Convention, NameGenerator> conventionNameGeneratorMap = new EnumMap<>(Convention.class);
 
     static {
         String lower = "[a-z][a-z0-9]*";
@@ -29,8 +30,6 @@ public enum Convention {
         conventionPatternMap.put(Convention.UPPERCASE_UNDERSCORE, Pattern.compile(String.format("^%s(_%s)*$", upper, upper)));
     }
 
-    static Map<Convention, NameParser> conventionNameParserMap = new EnumMap<>(Convention.class);
-
     static {
         conventionNameParserMap.put(Convention.CAMEL_CASE, new CamelCaseParser());
         conventionNameParserMap.put(Convention.PASCAL_CASE, new PascalCaseParser());
@@ -38,8 +37,6 @@ public enum Convention {
         conventionNameParserMap.put(Convention.LOWERCASE_UNDERSCORE, new LowercaseUnderscoreParser());
         conventionNameParserMap.put(Convention.UPPERCASE_UNDERSCORE, new UppercaseUnderscoreParser());
     }
-
-    static Map<Convention, NameGenerator> conventionNameGeneratorMap = new EnumMap<>(Convention.class);
 
     static {
         conventionNameGeneratorMap.put(Convention.CAMEL_CASE, new CamelCaseGenerator());
@@ -55,6 +52,10 @@ public enum Convention {
             if (entry.getValue().matcher(name).matches())
                 return conventionNameParserMap.get(entry.getKey()).parse(name);
         throw new IllegalArgumentException("not a clear info: " + name);
+    }
+
+    public static String normalize(String name) {
+        return parse(name).stream().map(String::toLowerCase).collect(Collectors.joining());
     }
 
     public String format(String name) {
