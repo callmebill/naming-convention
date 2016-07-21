@@ -21,7 +21,7 @@ public enum Convention {
     static {
         String lower = "[a-z][a-z0-9]*";
         String upper = "[A-Z][A-Z0-9]*";
-        String title = "[A-Z][a-z0-9]+";
+        String title = "[A-Z][a-z0-9]*";
 
         conventionPatternMap.put(Convention.CAMEL_CASE, Pattern.compile(String.format("^%s(%s)*$", lower, title)));
         conventionPatternMap.put(Convention.PASCAL_CASE, Pattern.compile(String.format("^(%s)+$", title)));
